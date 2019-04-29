@@ -1,0 +1,29 @@
+<html>
+<head>
+  <script src = "p5.min.js"></script>
+  <script src = "p5.geolocation.js"></script>
+</head>
+<body>
+  <p id="gotgeo"></p>
+  <h1 id="lat"></h1>
+  <h2 id="long"></h2>
+<script>
+
+
+function setup() {
+  if(geoCheck() == true){
+    document.getElementById('gotgeo').innerHTML = "Geolocation available";
+  }
+  else{
+    document.getElementById('gotgeo').innerHTML = "No location available";
+  }
+  getCurrentPosition(doThisOnLocation);
+  
+}
+function doThisOnLocation(position){
+  document.getElementById('lat').innerHTML = "lat: " + position.latitude";
+  document.getElementById('long').innerHTML = "long: " + position.longitude";
+}
+</script>
+</body>
+</html>
